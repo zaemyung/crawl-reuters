@@ -1,0 +1,15 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Scrapy stuff:
+.scrapy
+
+# virtualenv
+.venv
+venv/
+ENV/
+
+# crawled folder
+crawled/
