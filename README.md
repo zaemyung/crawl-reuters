@@ -10,11 +10,11 @@ A simple Scrapy script for crawling Reuters news articles (Python 3)
 
 For more detailed information on running Scrapy scripts, visit: [Scrapy Tutorial](https://doc.scrapy.org/en/latest/intro/tutorial.html)
 
-## Output Examples
+## Output
 
 The crawled articles for each day are saved as a JSON file at `./crawler/crawled/*year*/*month*/*date*.json`
 
-### JSON Format Example
+### JSON Format
 ~~~~
 {
     "text": ["This is the first sentence of the article.", "The second sentence is here"],
