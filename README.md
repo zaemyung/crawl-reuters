@@ -16,5 +16,10 @@ The crawled articles for each day are saved as a JSON file at `./crawler/crawled
 
 ### JSON Format Example
 ~~~~
-{"text": ["This is the first sentence of the article.", "The second sentence is here"], "section": "Politics", "title": "Reuters News Articles Crawled", "date": "20161113"}
+{
+    "text": ["This is the first sentence of the article.", "The second sentence is here"],
+    "section": "Politics",
+    "title": "Reuters News Articles Crawled",
+    "date": "20161113"
+}
 ~~~~
