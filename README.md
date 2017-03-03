@@ -8,7 +8,7 @@ A simple Scrapy script for crawling Reuters news articles (Python 3)
 2. Modify the code in `./crawler/crawler/spiders/reuters_spider.py` to suit your needs
 3. Run the script: `scrapy crawl reuters`
 
-For more detailed information on running Scrapy scripts, visit: [Scrapy tutorial](https://doc.scrapy.org/en/latest/intro/tutorial.html)
+For more detailed information on running Scrapy scripts, visit: [Scrapy Tutorial](https://doc.scrapy.org/en/latest/intro/tutorial.html)
 
 ## Output Examples
 
