@@ -43,6 +43,7 @@ class ReutersSpider(scrapy.Spider):
         item = response.meta['item']
         section = response.xpath("//span[@class='article-section']\
                                  /a/text()").extract_first().replace(" ", "_")
+        title = response.xpath("//*[@class='article-headline']//text()").extract_first()
         texts = response.xpath("//*[@id='article-text']/p/text()").extract()
         date = item['date']
         direc = date[:4]+"/"+date[4:6]+"/"
@@ -51,7 +52,7 @@ class ReutersSpider(scrapy.Spider):
             os.makedirs(save_path)
         with open(os.path.join(save_path, date[-2:]+".json"), 'a') as out_file:
             article = {
-                        'title':item['title'], 'section':section,
+                        'title':title, 'section':section,
                         'date':date, 'text':texts
                       }
             out = json.dumps(article)
