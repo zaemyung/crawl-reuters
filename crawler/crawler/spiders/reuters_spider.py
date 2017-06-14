@@ -43,7 +43,8 @@ class ReutersSpider(scrapy.Spider):
         item = response.meta['item']
         section = response.xpath("//span[@class='article-section']\
                                  /a/text()").extract_first().replace(" ", "_")
-        texts = response.xpath("//*[@id='article-text']/p/text()").extract()
+        texts = response.xpath("//*[@id='article-text']//text()").extract()
+        texts = [i.strip() for i in texts if len(i.strip()) > 0]
         date = item['date']
         direc = date[:4]+"/"+date[4:6]+"/"
         save_path = "./crawled/"+direc # e.g. ./crawled/2011/02
