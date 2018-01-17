@@ -11,7 +11,7 @@ class ReutersSpider(scrapy.Spider):
     def start_requests(self):
         base_url = 'http://www.reuters.com/resources/archive/us/'
         # years = [2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017]
-        years = [2015, 2016]
+        years = [2017]
 
         for year in years:
             url = base_url+str(year)+'.html'
@@ -41,10 +41,10 @@ class ReutersSpider(scrapy.Spider):
 
     def parse_article(self, response):
         item = response.meta['item']
-        section = response.xpath("//span[@class='article-section']\
+        section = response.xpath("//div[contains(@class, 'ArticleHeader_channel')]\
                                  /a/text()").extract_first().replace(" ", "_")
-        title = response.xpath("//*[@class='article-headline']//text()").extract_first()
-        texts = response.xpath("//*[@id='article-text']//text()").extract()
+        title = response.xpath("//h1[contains(@class, 'ArticleHeader_headline')]//text()").extract_first()
+        texts = response.xpath("//div[contains(@class, 'StandardArticleBody')]//text()").extract()
         texts = [i.strip() for i in texts if len(i.strip()) > 0]
         date = item['date']
         direc = date[:4]+"/"+date[4:6]+"/"
